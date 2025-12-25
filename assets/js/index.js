@@ -639,6 +639,11 @@ async function displayUpcomingLaunches(){
 
    allLaunches.slice(1).forEach(launch =>{
       // console.log(launch.image.image_url)
+      var image
+      // if(launch.image==null){
+      //   image="assets/images/placeholder.webp"
+      // }
+      image= launch.image? launch.image.image_url : "assets/images/placeholder.webp"
 
         box +=`            <div
               class="bg-slate-800/50 border border-slate-700 rounded-2xl overflow-hidden hover:border-blue-500/30 transition-all group cursor-pointer"
@@ -646,7 +651,7 @@ async function displayUpcomingLaunches(){
               <div
                 class="relative h-48 bg-slate-900/50 flex items-center justify-center"
               >
-             <img src="${launch.image.image_url || assets/images/placeholder.webp}" alt="" class="mg-bottom" >
+             <img src="${image}" alt="" class="mg-bottom" >
 
                 <div class="absolute top-3 right-3">
                   <span
